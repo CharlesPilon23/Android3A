@@ -24,4 +24,5 @@ public class Rocket {
     public int getNumberOfSatellites() {return numberOfSatellites; }
 
     public float getOrbitInKilometers() {return orbitInKilometers;}
+
 }

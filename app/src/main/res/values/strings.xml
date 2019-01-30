@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">SpaceX Launch Viewer</string>
     <string name="action_settings">Settings</string>
-    <string name="test">ceci est un test</string>
+    <string name="titre">SpaceX Viewer</string>
 </resources>

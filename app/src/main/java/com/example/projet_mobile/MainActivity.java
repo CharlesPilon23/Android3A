@@ -33,10 +33,25 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Contact : pilon@et.esiea.fr", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               // Snackbar.make(view, "Contact : pilon@et.esiea.fr", Snackbar.LENGTH_LONG)
+                 //       .setAction("action", null).show();
+                obtenirAide();
+
             }
         });
+    }
+
+
+
+
+    public void obtenirAide(){
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.setType("message/rfc822");
+        email.putExtra(android.content.Intent.EXTRA_EMAIL,"pilon@et.esiea.fr");
+        email.putExtra(Intent.EXTRA_SUBJECT, "Obtenir de l'aide");
+        email.putExtra(Intent.EXTRA_TEXT, "Saisissez votre demande ici");
+        email.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(Intent.createChooser(email, "Choisissez l'application"));
     }
 
     @Override

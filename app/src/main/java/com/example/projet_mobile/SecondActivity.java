@@ -19,18 +19,16 @@ public class SecondActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private ImageView imgAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        imgAdd = findViewById(R.id.imageView1);
 
-        final List<String> input = new ArrayList<>();
+        final List<String> input = new ArrayList<>(); //création d'une liste d'inputs
         for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
+            input.add("Rocket" + i);
         }
 
         showList(input);

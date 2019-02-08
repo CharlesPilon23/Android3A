@@ -8,12 +8,12 @@
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginRight="6dip"
         android:contentDescription="TODO"
-        android:textColor="@color/font_color"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher"
+        android:textColor="@color/font_color" />
 
     <TextView
         android:id="@+id/secondLine"

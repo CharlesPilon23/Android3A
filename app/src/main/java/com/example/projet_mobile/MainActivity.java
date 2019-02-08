@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     public void obtenirAide(){
         Intent email = new Intent(Intent.ACTION_SEND);
         email.setType("message/rfc822");

@@ -1,4 +1,4 @@
-package com.example.projet_mobile;
+package com.example.projet_mobile.model;
 
 public class Change {
     String subject;

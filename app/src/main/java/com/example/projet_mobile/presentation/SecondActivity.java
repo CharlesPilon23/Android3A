@@ -1,4 +1,4 @@
-package com.example.projet_mobile;
+package com.example.projet_mobile.presentation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.projet_mobile.R;
+import com.example.projet_mobile.data.SpaceAPI;
+import com.example.projet_mobile.model.Launches;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -41,15 +44,13 @@ public class SecondActivity extends AppCompatActivity {
 
         SpaceAPI spaceAPI = retrofit.create(SpaceAPI.class);
 
-        Call<List<Change>> call = spaceAPI.getListLaunches();
-        call.enqueue(new Callback<List<Change>>() {
+        Call<List<Launches>> call = spaceAPI.getListLaunches();
+        call.enqueue(new Callback<List<Launches>>() {
             @Override
-            public void onResponse(Call<List<Change>> call, Response<List<Change>> response) {
+            public void onResponse(Call<List<Launches>> call, Response<List<Launches>> response) {
                 if(response.isSuccessful()) {
-                    List<Change> changesList = response.body();
-                    for (Change change : changesList) {
-                        System.out.println(change.subject);
-                    }
+                    List<Launches> changesList = response.body();
+                    showList(changesList);
                     //changesList.forEach(change -> System.out.println(change.subject));
                 } else {
                     System.out.println(response.errorBody());
@@ -57,7 +58,7 @@ public class SecondActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Change>> call, Throwable t) {
+            public void onFailure(Call<List<Launches>> call, Throwable t) {
                 t.printStackTrace();
             }
         });
@@ -72,13 +73,13 @@ public class SecondActivity extends AppCompatActivity {
 
 
 
-    private void showList(List<String> input) {
+    private void showList(List<Launches> input) {
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
        // define an adapter
-        mAdapter = new MyAdapter(input);
+        mAdapter = new LaunchesAdapter(input);
         recyclerView.setAdapter(mAdapter);
 
 

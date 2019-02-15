@@ -79,4 +79,6 @@ public class MainActivity extends AppCompatActivity {
         Intent secondActivity = new Intent(this, SecondActivity.class);
         startActivity(secondActivity);
     }
+
+    //faire un controller qui écoute le bouton et lui dit de lancer startSecondActivity
 }

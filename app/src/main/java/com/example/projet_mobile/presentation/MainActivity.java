@@ -11,9 +11,12 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.example.projet_mobile.R;
+import com.example.projet_mobile.controller.MainActivityController;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private MainActivityController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSecondActivity();
+                controller.onListenButton();
             }
         });
 
@@ -34,13 +37,14 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Snackbar.make(view, "Contact : pilon@et.esiea.fr", Snackbar.LENGTH_LONG)
-                 //       .setAction("action", null).show();
-                obtenirAide();
-
+                controller.onListenMail();
             }
         });
     }
+
+
+
+
 
 
     public void obtenirAide(){
@@ -80,5 +84,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(secondActivity);
     }
 
-    //faire un controller qui écoute le bouton et lui dit de lancer startSecondActivity
+
 }

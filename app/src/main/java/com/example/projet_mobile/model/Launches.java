@@ -52,8 +52,6 @@ public class Launches {
         return links;
     }
 
-
-
     public void setFlightNumber(int flightNumber) {
         this.flightNumber = flightNumber;
     }

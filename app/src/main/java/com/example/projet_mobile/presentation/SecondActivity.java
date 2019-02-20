@@ -37,7 +37,6 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
-
     public void showList(List<Launches> input) {
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);

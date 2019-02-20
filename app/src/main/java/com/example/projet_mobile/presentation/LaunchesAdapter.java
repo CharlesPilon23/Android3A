@@ -60,16 +60,19 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
         return vh;
     }
 
+
+
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = values.get(position);
-        holder.txtHeader.setText(name);
+        final Launches launches = values.get(position);
+        holder.txtHeader.setText(launches.getMissionName());
+        holder.txtFooter.setText(launches.getLaunchYear());
 
 
-        holder.txtFooter.setText("Footer: " + name);
+        //holder.txtFooter.setText("Footer: " + name);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

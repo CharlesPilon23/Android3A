@@ -5,9 +5,9 @@
     android:padding="6dip" >
 
     <ImageView
-        android:id="@+id/icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/MissionPatch"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="6dip"
@@ -20,7 +20,7 @@
         android:layout_height="26dip"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/icon"
+        android:layout_toRightOf="@id/MissionPatch"
         android:ellipsize="marquee"
         android:maxLines="1"
         android:text="Description"
@@ -35,7 +35,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/icon"
+        android:layout_toRightOf="@id/MissionPatch"
         android:gravity="center_vertical"
         android:textColor="@color/font_color"
         android:text="Example application"

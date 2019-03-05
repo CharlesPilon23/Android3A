@@ -33,7 +33,7 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
-            img = v.findViewById(R.id.icon);
+            img = v.findViewById(R.id.MissionPatch);
         }
     }
 
@@ -75,7 +75,7 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final Launches launches = values.get(position);
-        holder.txtHeader.setText(launches.getMissionName());
+        holder.txtHeader.setText(launches.getFlightNumber() +" - "+ launches.getMissionName());
         holder.txtFooter.setText(launches.getLaunchYear());
         Picasso.with(context).load(launches.getLinks().getMissionPatch()).into(holder.img);
 

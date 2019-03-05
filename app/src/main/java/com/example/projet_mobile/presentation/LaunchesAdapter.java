@@ -2,16 +2,20 @@ package com.example.projet_mobile.presentation;
 
 import java.util.List;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.projet_mobile.R;
 import com.example.projet_mobile.model.Launches;
+import com.squareup.picasso.Picasso;
 
 public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHolder> {
+    private final Context context;
     private List<Launches> values;
 
     // Provide a reference to the views for each data item
@@ -21,6 +25,7 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
         // each data item is just a string in this case
         public TextView txtHeader;
         public TextView txtFooter;
+        public ImageView img;
         public View layout;
 
         public ViewHolder(View v) {
@@ -28,6 +33,7 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            img = v.findViewById(R.id.icon);
         }
     }
 
@@ -42,8 +48,9 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
     }
 
 
-    public LaunchesAdapter(List<Launches> myDataset) {
+    public LaunchesAdapter(List<Launches> myDataset, Context context) {
         values = myDataset;
+        this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
@@ -70,6 +77,8 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
         final Launches launches = values.get(position);
         holder.txtHeader.setText(launches.getMissionName());
         holder.txtFooter.setText(launches.getLaunchYear());
+        Picasso.with(context).load(launches.getLinks().getMissionPatch()).into(holder.img);
+
 
 
         //holder.txtFooter.setText("Footer: " + name);

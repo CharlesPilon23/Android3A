@@ -1,5 +1,6 @@
 package com.example.projet_mobile.presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -9,12 +10,8 @@ import android.widget.ImageView;
 
 import com.example.projet_mobile.R;
 import com.example.projet_mobile.controller.SecondActivityController;
-import com.example.projet_mobile.data.SpaceAPI;
 import com.example.projet_mobile.model.Launches;
-import com.example.projet_mobile.model.Links;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -51,10 +48,20 @@ public class SecondActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
        // define an adapter
-        mAdapter = new LaunchesAdapter(input, this);
+        mAdapter = new LaunchesAdapter(input, this, getLaunchesListener());
         recyclerView.setAdapter(mAdapter);
+    }
 
-
+    private LaunchesAdapter.OnItemClickListener getLaunchesListener() {
+        return new LaunchesAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Launches item) {
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                Gson gson = new Gson();
+                intent.putExtra("CLE", gson.toJson(item));
+                startActivity(intent);
+            }
+        };
     }
 
 }

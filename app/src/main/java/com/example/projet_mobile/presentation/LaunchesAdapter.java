@@ -17,6 +17,11 @@ import com.squareup.picasso.Picasso;
 public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHolder> {
     private final Context context;
     private List<Launches> values;
+    private final OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(Launches item);
+    }
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -48,9 +53,10 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
     }
 
 
-    public LaunchesAdapter(List<Launches> myDataset, Context context) {
+    public LaunchesAdapter(List<Launches> myDataset, Context context, OnItemClickListener listener) {
         values = myDataset;
         this.context = context;
+        this.listener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -77,6 +83,11 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
         final Launches launches = values.get(position);
         holder.txtHeader.setText(launches.getFlightNumber() +" - "+ launches.getMissionName());
         holder.txtFooter.setText(launches.getLaunchYear());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                listener.onItemClick(launches);
+            }
+        });
         Picasso.with(context).load(launches.getLinks().getMissionPatch()).into(holder.img);
 
 

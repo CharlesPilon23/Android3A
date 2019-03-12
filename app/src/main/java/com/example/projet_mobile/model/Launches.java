@@ -20,8 +20,8 @@ public class Launches {
     private Links links;
 
 
-    public int getFlightNumber() {
-        return flightNumber;
+    public String getFlightNumber() {
+        return String.valueOf(flightNumber);
     }
 
     public String getMissionName() {

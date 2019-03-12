@@ -8,18 +8,94 @@
 
 
     <TextView
-        android:id="@+id/LaunchSite"
-        android:layout_width="100dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Launch Site :"
+        android:id="@+id/NomMission"
+        android:layout_width="168dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="Mission Name"
         android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.964"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FlightNumber" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/siteLancement"
+        android:id="@+id/DateLancement"
+        android:layout_width="168dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="136dp"
+        android:gravity="center"
+        android:text="Launching Date"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/NomFusee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NomMission"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/NomFusee"
+        android:layout_width="250dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="rocket name"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toEndOf="@+id/RocketName"
+        app:layout_constraintTop_toBottomOf="@+id/MissionPatch" />
+
+    <TextView
+        android:id="@+id/TypeFusee"
+        android:layout_width="250dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="rocket type"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toEndOf="@+id/RocketType"
+        app:layout_constraintTop_toBottomOf="@+id/NomFusee" />
+
+    <TextView
+        android:id="@+id/NumeroVol"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="flight number"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toEndOf="@+id/FlightNumber"
+        app:layout_constraintTop_toBottomOf="@+id/TypeFusee" />
+
+    <TextView
+        android:id="@+id/SiteLancement"
         android:layout_width="250dp"
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
@@ -31,7 +107,88 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.241"
         app:layout_constraintStart_toEndOf="@+id/LaunchSite"
-        app:layout_constraintTop_toBottomOf="@+id/numeroVol" />
+        app:layout_constraintTop_toBottomOf="@+id/NumeroVol" />
+
+    <TextView
+        android:id="@+id/DateLancementUTC"
+        android:layout_width="240dp"
+        android:layout_height="28dp"
+        android:text="launch date"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@+id/LaunchDateUTC"
+        app:layout_constraintTop_toBottomOf="@+id/SiteLancement" />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="371dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="details on the flight of the rocket"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Details" />
+
+    <ImageView
+        android:id="@+id/MissionPatch"
+        android:layout_width="0dp"
+        android:layout_height="192dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/default_image"
+        android:textColor="@color/font_color"
+        app:layout_constraintEnd_toStartOf="@+id/DateLancement"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/VideoButton"
+        android:layout_width="244dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/colorPrimary"
+        android:text="See the flight retransmission"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details" />
+
+    <TextView
+        android:id="@+id/LaunchSite"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Launch Site :"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FlightNumber" />
+
+    <TextView
+        android:id="@+id/RocketName"
+        android:layout_width="100dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Rocket Name :"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MissionPatch" />
 
     <TextView
         android:id="@+id/LaunchDateUTC"
@@ -57,15 +214,6 @@
         app:layout_constraintTop_toBottomOf="@+id/LaunchDateUTC" />
 
     <TextView
-        android:id="@+id/dateLandementUTC"
-        android:layout_width="240dp"
-        android:layout_height="28dp"
-        android:text="launch date"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@+id/LaunchDateUTC"
-        app:layout_constraintTop_toBottomOf="@+id/siteLancement" />
-
-    <TextView
         android:id="@+id/RocketType"
         android:layout_width="100dp"
         android:layout_height="26dp"
@@ -77,21 +225,6 @@
         app:layout_constraintTop_toBottomOf="@+id/RocketName" />
 
     <TextView
-        android:id="@+id/nomFusee2"
-        android:layout_width="250dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="rocket type"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.241"
-        app:layout_constraintStart_toEndOf="@+id/RocketType"
-        app:layout_constraintTop_toBottomOf="@+id/NomFusee" />
-
-    <TextView
         android:id="@+id/FlightNumber"
         android:layout_width="100dp"
         android:layout_height="26dp"
@@ -101,147 +234,6 @@
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RocketType" />
-
-    <TextView
-        android:id="@+id/numeroVol"
-        android:layout_width="250dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="flight number"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.241"
-        app:layout_constraintStart_toEndOf="@+id/FlightNumber"
-        app:layout_constraintTop_toBottomOf="@+id/nomFusee2" />
-
-    <ImageView
-        android:id="@+id/MissionPatch"
-        android:layout_width="0dp"
-        android:layout_height="192dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:src="@drawable/default_image"
-        android:textColor="@color/font_color"
-        app:layout_constraintEnd_toStartOf="@+id/DateLancement"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/NomMission"
-        android:gravity="center"
-        android:layout_width="168dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Mission Name"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/DateLancement"
-        android:gravity="center"
-        android:layout_width="168dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="136dp"
-        android:text="Launching Date"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/NomFusee"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NomMission"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mission Name"
-        tools:layout_editor_absoluteX="655dp"
-        tools:layout_editor_absoluteY="376dp" />
-
-    <TextView
-        android:id="@+id/RocketName"
-        android:layout_width="100dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:text="Rocket Name :"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MissionPatch" />
-
-    <TextView
-        android:id="@+id/NomFusee"
-        android:layout_width="250dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="rocket name"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.241"
-        app:layout_constraintStart_toEndOf="@+id/RocketName"
-        app:layout_constraintTop_toBottomOf="@+id/MissionPatch" />
-
-    <TextView
-        android:id="@+id/details"
-        android:layout_width="371dp"
-        android:layout_height="167dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="details on the flight of the rocket"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Details" />
-
-    <Button
-        android:id="@+id/VideoButton"
-        android:layout_width="244dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="32dp"
-        android:background="@color/colorPrimary"
-        android:text="See the flight retransmission"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/details" />
 
 
 </android.support.constraint.ConstraintLayout>

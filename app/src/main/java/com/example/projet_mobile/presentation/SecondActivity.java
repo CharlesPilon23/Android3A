@@ -36,10 +36,6 @@ public class SecondActivity extends AppCompatActivity {
         controller = new SecondActivityController(this);
         controller.onStart();
 
-
-
-
-
     }
 
     public void showList(List<Launches> input) {

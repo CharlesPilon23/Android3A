@@ -10,4 +10,6 @@ public class DetailActivityController {
     public DetailActivityController (DetailActivity detailActivity){this.detailActivity=detailActivity;}
 
 
+
+
 }

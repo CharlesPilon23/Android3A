@@ -47,14 +47,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     public void obtenirAide(){
         Intent email = new Intent(Intent.ACTION_SEND);
         email.setType("message/rfc822");
-        email.putExtra(android.content.Intent.EXTRA_EMAIL,"pilon@et.esiea.fr");
+        email.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"pilon@et.esiea.fr"});
         email.putExtra(Intent.EXTRA_SUBJECT, "Obtenir de l'aide");
         email.putExtra(Intent.EXTRA_TEXT, "Saisissez votre demande ici");
         email.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -62,13 +58,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+   public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
-    @Override
+   @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long

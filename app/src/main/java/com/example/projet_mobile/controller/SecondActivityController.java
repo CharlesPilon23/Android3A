@@ -1,6 +1,9 @@
 package com.example.projet_mobile.controller;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import com.example.projet_mobile.data.SpaceAPI;
 import com.example.projet_mobile.model.Launches;
@@ -8,7 +11,10 @@ import com.example.projet_mobile.presentation.MainActivity;
 import com.example.projet_mobile.presentation.SecondActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.Console;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,8 +27,8 @@ public class SecondActivityController {
 
     private SecondActivity secondActivity;
 
-    public SecondActivityController(SecondActivity SecondActivity) {
-        this.secondActivity = SecondActivity;
+    public SecondActivityController(SecondActivity secondActivity) {
+        this.secondActivity = secondActivity;
     }
 
     public void onStart(){
@@ -36,8 +42,11 @@ public class SecondActivityController {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        SpaceAPI spaceAPI = retrofit.create(SpaceAPI.class);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(secondActivity);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
 
+
+        SpaceAPI spaceAPI = retrofit.create(SpaceAPI.class);
         Call<List<Launches>> call = spaceAPI.getListLaunches();
         call.enqueue(new Callback<List<Launches>>() {
             @Override
@@ -45,14 +54,32 @@ public class SecondActivityController {
                 if(response.isSuccessful()) {
                     List<Launches> changesList = response.body();
                     secondActivity.showList(changesList);
+
+                    //mise en cache
+                    Gson gson = new Gson();
+                    String json = gson.toJson(changesList);
+                    editor.putString("key_cache", json);
+                    editor.apply();
+                    secondActivity.showList(changesList);
                 } else {
                     System.out.println(response.errorBody());
                 }
+
             }
 
             @Override
             public void onFailure(Call<List<Launches>> call, Throwable t) {
                 t.printStackTrace();
+                Toast toast = new Toast(secondActivity.getBaseContext());
+                toast.makeText(secondActivity.getBaseContext(), "Can not reach the internet",Toast.LENGTH_LONG).show();
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(secondActivity);
+                Gson gson = new Gson();
+                String json = prefs.getString("key_cache", null);
+                Type type = new TypeToken<List<Console>>() {}.getType();
+                List<Launches> changesList = gson.fromJson(json, type);
+
+                secondActivity.showList(changesList);
             }
         });
 

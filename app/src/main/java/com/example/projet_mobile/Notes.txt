@@ -1,3 +1,0 @@
-on utilisera l'API REST
-https://api.spacexdata.com/v3/launches
-

@@ -60,7 +60,7 @@ public class SecondActivityController {
                     String json = gson.toJson(changesList);
                     editor.putString("key_cache", json);
                     editor.apply();
-                    secondActivity.showList(changesList);
+
                 } else {
                     System.out.println(response.errorBody());
                 }
@@ -71,7 +71,7 @@ public class SecondActivityController {
             public void onFailure(Call<List<Launches>> call, Throwable t) {
                 t.printStackTrace();
                 Toast toast = new Toast(secondActivity.getBaseContext());
-                toast.makeText(secondActivity.getBaseContext(), "Can not reach the internet",Toast.LENGTH_LONG).show();
+                toast.makeText(secondActivity, "Can not reach the internet",Toast.LENGTH_LONG).show();
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(secondActivity);
                 Gson gson = new Gson();

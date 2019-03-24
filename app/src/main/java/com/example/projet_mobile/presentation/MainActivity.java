@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         Intent email = new Intent(Intent.ACTION_SEND);
         email.setType("message/rfc822");
         email.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"pilon@et.esiea.fr"});
-        email.putExtra(Intent.EXTRA_SUBJECT, "Obtenir de l'aide");
+        email.putExtra(Intent.EXTRA_SUBJECT, "Aide, info ou commentaire");
         email.putExtra(Intent.EXTRA_TEXT, "Saisissez votre demande ici");
         email.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(Intent.createChooser(email, "Choisissez l'application"));
